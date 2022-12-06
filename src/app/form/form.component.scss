@@ -1,0 +1,15 @@
+.ca {
+  @apply w-full max-w-sm mx-auto mt-8 mb-5;
+}
+.ce {
+  @apply flex items-center border-b border-blue-500 py-2;
+}
+.ci {
+    @apply appearance-none bg-gray-200 border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none;
+}
+.co {
+    @apply flex-shrink-0 ml-10 bg-blue-500 hover:bg-blue-700 border-blue-500 hover:border-blue-700 text-sm border-4 text-white py-1 px-2 rounded;
+}
+.cu {
+    @apply flex-shrink-0 border-transparent border-4 text-blue-500 hover:text-blue-800 text-sm py-1 px-2 rounded;
+}

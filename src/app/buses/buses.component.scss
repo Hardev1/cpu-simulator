@@ -1,0 +1,32 @@
+.bus-container {
+    @apply absolute h-64 w-40 transform top-60;
+    right: 18.7rem;
+}
+
+.buses {
+    @apply flex h-full w-full;
+    right: 18.5rem;
+}
+
+.bus {
+    @apply flex flex-wrap w-8 h-full bg-blue-400 mx-3;
+    writing-mode: vertical-lr;
+}
+
+.cilindro1 {
+    width: 100%;
+     height: 1rem;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     @apply transform -translate-y-2 z-20 bg-blue-600;
+}
+
+.cilindro2 {
+    width: 100%;
+     height: 1rem;
+     -moz-border-radius: 50%;
+     -webkit-border-radius: 50%;
+     border-radius: 50%;
+     @apply mt-auto transform translate-y-2 bg-blue-600;
+}

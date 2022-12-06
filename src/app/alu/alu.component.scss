@@ -1,0 +1,21 @@
+.container {
+    @apply relative w-72 flex flex-nowrap mt-5 ml-16 mr-16;
+}
+
+.alu {
+    @apply absolute h-32 w-full bg-blue-500 border-2 border-black z-0;
+    clip-path: polygon(50% 70%, 75% 0, 100% 0, 65% 100%, 35% 100%, 0 0, 25% 0);
+}
+
+input {
+    @apply flex w-1/4;
+}
+
+.r1 {
+    @apply mr-auto;
+}
+
+.rs {
+    @apply absolute transform translate-y-28 w-24;
+    left: 33.3%;
+}
