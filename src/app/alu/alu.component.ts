@@ -38,28 +38,25 @@ export class AluComponent implements OnChanges {
     }
   }
 
-  addcero(r: any) {
+  addCero(r: string): string {
     if (r.length === 4) {
-      console.log(r + "aaaaaaaaaaaaaaaaaaaaaaaaaa");
       return r
     }
-    else {
-      console.log(r + "bbbbbbbbbbbbbbbbbb");
-      this.addcero("0" + r);
-    }
+
+    return this.addCero(`0${r}`)
   }
 
   add(r: any) {
     for (let i = r.length - 1; i < 8; i++) {
       if (r.length < 8) {
-        r = "0" + r;
+        r = `0${r}`;
       } else {
         return r
       }
     }
   }
 
-  instructToBinary(r1:any, r2:any) {
+  instructToBinary(r1: any, r2: any) {
     switch (this.onInstruct) {
       case "ADD":
         this.binaryInstruct = "0001";
