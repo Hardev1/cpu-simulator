@@ -4,12 +4,12 @@
     <app-ri [onInfo]="getOnInfo()"></app-ri>
     <app-cp></app-cp>
     <app-mar [onDireccion]="direccion"></app-mar>
-    <app-alu [onOps]="ops" [onInstruct]="instruccion"></app-alu>
+    <app-alu [onOps]="ops" [onInstruct]="instruccion" (onRs)="handleRs($event)"></app-alu>
     <app-uc></app-uc>
     <app-mbr></app-mbr>
     <app-br></app-br>
   </div>
-  <app-memoria [onBinaryDirect]="binaryDirect" [onR1]="r1" [onR2]="r2" [onRs]="rs"></app-memoria>
+  <app-memoria [onBinaryDirect]="binaryDirect" [onBinaryInstruct]="binaryInstruct" [onR1]="r1" [onR2]="r2" [onRs]="rs"></app-memoria>
   <app-buses [onDireccion]="direccion"></app-buses>
 </div>
-<app-form (onInfo)="handleInfo($event)" (onOps)="handleOps($event)" (onDireccion)="handleDirect($event)" (onInstruct)="handleInstruct($event)" (onBinaryDirect)="binaryDirect"></app-form>
+<app-form (onInfo)="handleInfo($event)" (onOps)="handleOps($event)" (onDireccion)="handleDirect($event)" (onInstruct)="handleInstruct($event)" (onDireccion)="handleBinaryDirect($event)"></app-form>

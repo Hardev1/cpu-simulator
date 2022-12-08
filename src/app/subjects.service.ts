@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 })
 export class SubjectsService {
   onInfo = new Subject<string>();
+  onRs = new Subject<string>();
 
   constructor() { }
 }

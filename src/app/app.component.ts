@@ -11,6 +11,7 @@ export class AppComponent implements OnInit {
   title = 'cpu-simulator';
   ops: string[] = [];
   instruccion: string = "";
+  binaryInstruct: string = "";
   binaryDirect: string = "";
   direccion: string = "";
   r1: string = "";
@@ -30,13 +31,38 @@ export class AppComponent implements OnInit {
     this.subjectsService.onInfo.subscribe((text: string) => {
       console.log(`Received from child component: ${text}`);
     });
+    this.subjectsService.onRs.subscribe((rs: string) => {
+      console.log(`Received from child component: ${rs}`);
+    });
   }
 
   handleInstruct(instruccion: string) {
+    this.handleBinaryInstruct(instruccion);
     return this.instruccion = instruccion;
   };
 
-  handleBinaryDirect(binaryDirect: string) {
+  handleBinaryInstruct(binaryInstruct: any) {
+    switch (binaryInstruct) {
+      case "ADD":
+        return this.binaryInstruct = "00000001";
+
+      case "SUB":
+        return this.binaryInstruct = "00000010"
+
+      case "MPY":
+        return this.binaryInstruct = "00000011"
+
+      case "DIV":
+        return this.binaryInstruct = "00000100"
+
+      default:
+        return "0000"
+        break;
+    }
+  };
+
+  handleBinaryDirect(direct: string) {
+    let binaryDirect = this.add(Number(direct).toString(2));
     return this.binaryDirect = binaryDirect;
   };
 
@@ -49,6 +75,13 @@ export class AppComponent implements OnInit {
   };
 
   handleOps(ops: string[]) {
+    this.r1 = this.add(Number(ops[0]).toString(2));
+    this.r2 = this.add(Number(ops[1]).toString(2));
+    this.subjectsService.onRs.subscribe((text: string) => {
+      console.log(`Received from child component: ${text}`);
+    });
+    console.log(this.r1, this.r2);
+    
     return this.ops = ops;
   };
 
@@ -57,13 +90,27 @@ export class AppComponent implements OnInit {
   }
 
   handleR1(r1: string) {
-    return this.r1 = r1;
+    return r1 = this.add(Number(this.ops[0]).toString(2));
   };
   handleR2(r2: string) {
-    return this.r2 = r2;
+    return r2 = this.add(Number(this.ops[1]).toString(2));
   };
   handleRs(rs: string) {
+    this.subjectsService.onRs.next(rs);
+    console.log(rs);
+    
     return this.rs = rs;
   };
+  add(r: any) {
+    r = r.toString(2);
+    
+    for (let i = r.length - 1; i < 8; i++) {
+      if (r.length < 8) {
+        r = `0${r}`;
+      } else {
+        return r
+      }
+    }
+  }
 
 }

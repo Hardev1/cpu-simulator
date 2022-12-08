@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnChanges, OnInit } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -9,7 +9,9 @@ import { Subject } from 'rxjs';
 export class AluComponent implements OnChanges {
   @Input() onInstruct: string = "";
   binaryInstruct: string = "";
+  @Output() onBinaryInstruct: EventEmitter<string> = new EventEmitter<string>();
   @Input() onOps: string[] = [];
+  @Output() onRs: EventEmitter<string> = new EventEmitter<string>();
   r1: string = "";
   r2: string = "";
   rs: string = "";
@@ -32,8 +34,11 @@ export class AluComponent implements OnChanges {
         console.log(this.r2 = this.addcero(this.r2)); */
         console.log(Number(this.onOps[0]) + Number(this.onOps[1]));
         console.log(this.onInstruct);
-        this.rs = this.add(this.instructToBinary(Number(this.onOps[0]), Number(this.onOps[1])))
+        let asd:string = this.add(this.instructToBinary(Number(this.onOps[0]), Number(this.onOps[1])))
+        this.rs = asd
         this.estilo = true;
+        this.onBinaryInstruct.emit(this.binaryInstruct);
+        this.onRs.emit(asd);
       }, 4000);
     }
   }
