@@ -15,7 +15,11 @@ export class MemoriaComponent implements OnChanges {
   @Input() onR1: string = "";
   @Input() onR2: string = "";
   @Input() onRs: string = "";
+  @Input() onDireccion: string = "";
   estilo: boolean = false;
+  columnaDirecciones : string = "00000000 00000001 00000010 00000011 00000100 00000101 00000110 00000111 00001000 00001010 00001011 00001100 00001101 00001110 00001111";
+  programa: string[] = this.columnaDirecciones.split(" ");
+  contador: number = -1;
 
   constructor() { }
 
@@ -23,21 +27,16 @@ export class MemoriaComponent implements OnChanges {
     this.showDirect();
   }
 
-
-
   showDirect() {
 
     if (this.onBinaryDirect.length > 0) {
       //this.opsr1r2(this.onOps);
       const a = setTimeout(() => {
-        console.log(this.onBinaryInstruct);
-        console.log(this.onBinaryDirect);
-        console.log(this.onR1);
-        console.log(this.onR2);
-        console.log(this.onRs);
-        this.memoria_programa = `${this.onBinaryInstruct} ${this.onR1} ${this.onR2} ${this.onRs} \n`
+        this.contador ++;
+        this.memoria_programa = `${this.onBinaryInstruct} ${this.onR1} ${this.onR2} ${this.onRs} \n`;
+        this.memoria_datos =`${this.onBinaryDirect} ${this.onRs} \n`
         this.estilo = true;
-      }, 6000);
+      }, 2000);
     }
   }
 

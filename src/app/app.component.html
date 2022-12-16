@@ -1,12 +1,12 @@
 <div class="container">
   <div class="cpu">
     <app-acumulador></app-acumulador>
-    <app-ri [onInfo]="getOnInfo()"></app-ri>
-    <app-cp></app-cp>
+    <app-ri [onBinaryDirect]="binaryDirect" [onBinaryInstruct]="binaryInstruct" [onR1]="r1" [onR2]="r2"></app-ri>
+    <app-cp [onDireccion]="direccion"></app-cp>
     <app-mar [onDireccion]="direccion"></app-mar>
     <app-alu [onOps]="ops" [onInstruct]="instruccion" (onRs)="handleRs($event)"></app-alu>
-    <app-uc></app-uc>
-    <app-mbr></app-mbr>
+    <app-uc [onInfo]="getOnInfo()" [onBinaryDirect]="binaryDirect" [onBinaryInstruct]="binaryInstruct" [onR1]="r1" [onR2]="r2"></app-uc>
+    <app-mbr [onBinaryDirect]="binaryDirect" [onBinaryInstruct]="binaryInstruct" [onR1]="r1" [onR2]="r2"></app-mbr>
     <app-br></app-br>
   </div>
   <app-memoria [onBinaryDirect]="binaryDirect" [onBinaryInstruct]="binaryInstruct" [onR1]="r1" [onR2]="r2" [onRs]="rs"></app-memoria>

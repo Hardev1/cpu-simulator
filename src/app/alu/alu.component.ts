@@ -21,25 +21,36 @@ export class AluComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
+    const a = setTimeout(() => {
+      this.r1 = "";
+      this.r2 = "";
+    }, 11999);
     this.opsr1r2();
   }
 
   opsr1r2() {
     if (this.onOps.length > 0) {
       //this.opsr1r2(this.onOps);
+      const cd = setTimeout(() => {
+        this.estilo = false;
+      }, 11000);
       const a = setTimeout(() => {
         this.r1 = this.add(Number(this.onOps[0]).toString(2));
         this.r2 = this.add(Number(this.onOps[1]).toString(2));
         /* console.log(this.r1 = this.addcero(this.r1));
         console.log(this.r2 = this.addcero(this.r2)); */
-        console.log(Number(this.onOps[0]) + Number(this.onOps[1]));
-        console.log(this.onInstruct);
-        let asd:string = this.add(this.instructToBinary(Number(this.onOps[0]), Number(this.onOps[1])))
-        this.rs = asd
         this.estilo = true;
         this.onBinaryInstruct.emit(this.binaryInstruct);
+      }, 12000);
+      const c = setTimeout(() => {
+        this.estilo = false;
+      }, 13000);
+      const b = setTimeout(() => {
+        let asd:string = this.add(this.instructToBinary(Number(this.onOps[0]), Number(this.onOps[1])))
+        this.rs = asd
         this.onRs.emit(asd);
-      }, 4000);
+        this.estilo = true;
+      }, 14000);
     }
   }
 

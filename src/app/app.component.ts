@@ -29,10 +29,10 @@ export class AppComponent implements OnInit {
     /**Es útil si se necesita notificar a muchos componentes a la vez, de un cambio particular sin seguir una regla de jerarquía definida
       O sea, componentes que no necesariamente son padres/hijos */
     this.subjectsService.onInfo.subscribe((text: string) => {
-      console.log(`Received from child component: ${text}`);
+      //console.log(`Received from child component: ${text}`);
     });
     this.subjectsService.onRs.subscribe((rs: string) => {
-      console.log(`Received from child component: ${rs}`);
+      //console.log(`Received from child component: ${rs}`);
     });
   }
 
@@ -67,7 +67,7 @@ export class AppComponent implements OnInit {
   };
 
   handleDirect(direccion: string) {
-    return this.direccion = direccion;
+    return this.add(this.direccion = direccion);
   };
 
   handleInfo(info: string) {
@@ -80,7 +80,6 @@ export class AppComponent implements OnInit {
     this.subjectsService.onRs.subscribe((text: string) => {
       console.log(`Received from child component: ${text}`);
     });
-    console.log(this.r1, this.r2);
     
     return this.ops = ops;
   };

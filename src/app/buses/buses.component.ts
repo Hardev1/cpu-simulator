@@ -7,7 +7,8 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 })
 export class BusesComponent implements OnChanges {
 
-  estilo:boolean = false;
+  estilod:boolean = false;
+  estiloda:boolean = false;
   @Input() onDireccion: string = "";
 
   constructor() { }
@@ -19,9 +20,26 @@ export class BusesComponent implements OnChanges {
   showDirect() {
     if (this.onDireccion.length > 0) {
       //this.opsr1r2(this.onOps);
+      const cd = setTimeout(() => {
+        this.estilod = false;
+        this.estiloda = false;
+      }, 4000);
       const a = setTimeout(() => {
-        this.estilo = true;
-      }, 3000);
+        this.estilod = true;
+      }, 5000);
+      const b = setTimeout(() => {
+        
+        this.estiloda = true;
+      }, 7000);
+      const e = setTimeout(() => {
+      }, 10000);
+      const c = setTimeout(() => {
+        this.estilod = true;
+      }, 15000);
+      const d = setTimeout(() => {
+        
+        this.estiloda = true;
+      }, 15000);
     }
   }
 

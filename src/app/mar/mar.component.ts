@@ -15,6 +15,9 @@ export class MarComponent implements OnChanges {
   constructor() { }
 
   ngOnChanges() {
+    const a = setTimeout(() => {
+      this.binaryDirect = "";
+    }, 3999);
     this.showDirect();
   }
 
@@ -23,13 +26,24 @@ export class MarComponent implements OnChanges {
   showDirect() {
     if (this.onDireccion.length > 0) {
       //this.opsr1r2(this.onOps);
+
+      const c = setTimeout(() => {
+        this.estilo = false;
+      }, 3000);
       const a = setTimeout(() => {
-        console.log(this.binaryDirect = Number(this.onDireccion[0]).toString(2));
-        /* console.log(this.r1 = this.addcero(this.r1));
-        console.log(this.r2 = this.addcero(this.r2)); */
+        this.binaryDirect = this.add(Number(this.onDireccion[0]).toString(2));
         this.estilo = true;
-        console.log(this.onDireccion);
-      }, 2000);
+      }, 4000);
+    }
+  }
+
+  add(r: any) {
+    for (let i = r.length - 1; i < 8; i++) {
+      if (r.length < 8) {
+        r = `0${r}`;
+      } else {
+        return r
+      }
     }
   }
 

@@ -1,8 +1,12 @@
 .memoria {
-    @apply h-32 w-40 bg-blue-500 border-2 border-black mt-5 ml-14 text-center flex items-stretch flex-wrap justify-center overflow-scroll;
-    clip-path: polygon(15% 0%, 77% 0%, 100% 100%, 0% 100%);
+    @apply h-44 w-96 overflow-hidden bg-blue-500 border-2 border-black mt-5 ml-14 text-center flex items-stretch flex-wrap justify-center;
+    clip-path: polygon(8% 0%, 92% 0%, 100% 100%, 0% 100%);
 }
 
 textarea {
-    width: 65%;
+    width: 85%;
+}
+
+.dir_programa {
+    @apply w-10 absolute transform translate-x-12 z-30 translate-y-5 overflow-hidden;
 }
